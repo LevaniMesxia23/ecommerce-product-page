@@ -1,15 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Menu from "../../public/images/icon-menu.svg";
 import Cart from "../../public/images/icon-cart.svg";
 import Avatar from "../../public/images/image-avatar.png";
 
 export default function Navigation() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen((open) => !open);
+  };
   return (
     <>
       <Container>
         <div>
-          <img src={Menu} alt="" />
+          <img src={Menu} alt="" className="burger" onClick={toggleMenu} />
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="138"
@@ -25,6 +30,15 @@ export default function Navigation() {
             />
           </svg>
         </div>
+        <nav>
+          <ul className={isOpen ? "open" : ""}>
+            <li>Collections</li>
+            <li>Men</li>
+            <li>Women</li>
+            <li>About</li>
+            <li>Contact</li>
+          </ul>
+        </nav>
         <div>
           <img src={Cart} alt="" />
           <img className="avatar" src={Avatar} alt="" />
@@ -51,5 +65,44 @@ const Container = styled.div`
       height: 24px;
       flex-shrink: 0;
     }
+  }
+  ul {
+    padding-left: 1.56rem;
+  }
+  nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 1rem;
+    display: none;
+    padding-top: 1rem;
+  }
+  nav ul li {
+    cursor: pointer;
+    color: #1d2026;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 144.444%;
+  }
+  nav ul li:active {
+    color: brown;
+  }
+
+  .open {
+    top: 10%;
+    left: 0;
+    bottom: 0;
+    width: 70%;
+    background-color: white;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    z-index: 9;
+  }
+  .burger {
+    display: block;
+  }
+  nav ul.open {
+    display: flex;
   }
 `;
