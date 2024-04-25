@@ -3,6 +3,7 @@ import GlobalStyles from "./styles/GlobalStyles"
 import MainImages from "./components/MainImages"
 import Information from "./components/Information"
 import Purchase from "./components/Purchase"
+import AddToCart from "./components/AddToCart"
 import styled from "styled-components"
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <MainImages />
       <Information />
       <Purchase />
+      <AddToCart />
     </>
   )
 }
