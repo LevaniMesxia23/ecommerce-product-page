@@ -56,8 +56,7 @@ const Container = styled.div`
 
     img {
       width: 100%;
-      min-width: 22.4375rem;
-      max-width: 23.4375rem;
+      min-width: 21.4375rem;
       height: 18.75rem;
       flex-shrink: 0;
     }
