@@ -1,16 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import plus from "../../public/images/icon-plus.svg";
 import minus from "../../public/images/icon-minus.svg";
 
 export default function AddToCart() {
+  const [changeNum, setChangeNum] = useState(0);
+
+  const handlePlus = () => {
+    setChangeNum((changeNum) => changeNum + 1);
+  };
+
+  const handleMinus = () => {
+    if (changeNum > 0) setChangeNum((changeNum) => changeNum - 1);
+  };
   return (
     <>
       <Container>
         <div className="plus-minus-position">
-          <div className="quantity">0</div>
-          <img className="plus" src={plus} alt="" />
-          <img className="minus" src={minus} alt="" />
+          <div className="quantity">{changeNum}</div>
+          <img className="plus" src={plus} alt="" onClick={handlePlus} />
+          <img className="minus" src={minus} alt="" onClick={handleMinus} />
         </div>
 
         <div className="add">
