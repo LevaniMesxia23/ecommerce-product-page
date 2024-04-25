@@ -2,6 +2,7 @@ import Navigation from "../src/components/Navigation"
 import GlobalStyles from "./styles/GlobalStyles"
 import MainImages from "./components/MainImages"
 import Information from "./components/Information"
+import Purchase from "./components/Purchase"
 import styled from "styled-components"
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <Navigation />
       <MainImages />
       <Information />
+      <Purchase />
     </>
   )
 }
