@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { useContext } from "react";
 import { MyContext } from "../App";
@@ -6,12 +6,22 @@ import Product from "../../public/images/image-product-1.jpg";
 import Delete from "../../public/images/icon-delete.svg";
 
 export default function Cart() {
-  const { changeNum, setChangeNum,showCheckout, setShowCheckout,num,setNum} = useContext(MyContext);
+  const {
+    changeNum,
+    setChangeNum,
+    showCheckout,
+    setShowCheckout,
+    num,
+    setNum,
+  } = useContext(MyContext);
 
+  useEffect(() => {
     if (changeNum > 0) {
       setShowCheckout(false);
     }
+  }, [num]);
 
+  const handleDelete = () => {};
   return (
     <Container>
       <div className="cart-div">Cart</div>
@@ -31,7 +41,7 @@ export default function Cart() {
                   $125.00 x {num} <span>`${num * 125}`</span>
                 </span>
               </div>
-              <img src={Delete} alt="" />
+              <img src={Delete} alt="" onClick={handleDelete} />
             </div>
             <div className="checkout">Checkout</div>
           </div>
