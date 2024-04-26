@@ -29,6 +29,11 @@ const Container = styled.div`
 
   .cart-div {
     padding: 1.5rem;
+    color: #1d2026;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
   }
   .line {
     width: 100%;
@@ -41,5 +46,12 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
     padding-top: 4.81rem;
+
+    color: #69707d;
+    text-align: center;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 162.5%;
   }
 `;

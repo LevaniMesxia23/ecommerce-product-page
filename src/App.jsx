@@ -13,7 +13,7 @@ export const MyContext = React.createContext(null);
 
 function App() {
   const [changeNum, setChangeNum] = useState(0);
-  const [showCart, setShowCart] = useState(true);
+  const [showCart, setShowCart] = useState(false);
   const [quantity, setQuantity] = useState(false);
 
   return (

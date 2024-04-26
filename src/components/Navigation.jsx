@@ -8,13 +8,13 @@ import { MyContext } from "../App";
 
 export default function Navigation() {
   const { changeNum, setChangeNum } = useContext(MyContext);
-  const {quantity, setQuantity} = useContext(MyContext)
+  const { quantity, setQuantity } = useContext(MyContext);
   const [isOpen, setIsOpen] = useState(false);
-  // const [showCart,setShowCart] = useContext(MyContext)
+  const { showCart, setShowCart } = useContext(MyContext);
 
-  // const handleShowCart = () => {
-  //   setShowCart(!showCart)
-  // }
+  const handleShowCart = () => {
+    setShowCart(!showCart);
+  };
 
   const toggleMenu = () => {
     setIsOpen((open) => !open);
@@ -47,8 +47,10 @@ export default function Navigation() {
           <li>Contact</li>
         </ul>
         <div className="nav-right-div">
-          <img src={Cart} alt="" />
-          {quantity ? <div className="notification-number">{changeNum}</div> : null}
+          <img src={Cart} alt="" onClick={handleShowCart} />
+          {quantity ? (
+            <div className="notification-number">{changeNum}</div>
+          ) : null}
           <img className="avatar" src={Avatar} alt="" />
         </div>
       </Container>
@@ -74,7 +76,7 @@ const Container = styled.div`
       height: 24px;
       flex-shrink: 0;
     }
-    .avatar:hover{
+    .avatar:hover {
       border: 2px solid #cb7d17;
       border-radius: 50%;
     }
