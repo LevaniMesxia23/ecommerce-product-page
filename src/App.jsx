@@ -15,6 +15,8 @@ function App() {
   const [changeNum, setChangeNum] = useState(0);
   const [showCart, setShowCart] = useState(false);
   const [quantity, setQuantity] = useState(false);
+  const [showCheckout, setShowCheckout] = useState(false);
+  const [num, setNum] = useState(0);
 
   return (
     <>
@@ -26,6 +28,10 @@ function App() {
           setQuantity,
           showCart,
           setShowCart,
+          showCheckout,
+          setShowCheckout,
+          num,
+          setNum,
         }}
       >
         <Container>

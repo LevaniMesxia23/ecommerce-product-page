@@ -8,6 +8,8 @@ import { MyContext } from "../App";
 export default function AddToCart() {
   const { changeNum, setChangeNum } = useContext(MyContext);
   const { quantity, setQuantity } = useContext(MyContext);
+  const { num, setNum } = useContext(MyContext);
+  console.log(num)
 
   const handlePlus = () => {
     setChangeNum((changeNum) => changeNum + 1);
@@ -18,7 +20,8 @@ export default function AddToCart() {
   };
 
   const quantityChange = () => {
-    setQuantity(!quantity);
+    setQuantity(true);
+    setNum(changeNum);
   };
   return (
     <>

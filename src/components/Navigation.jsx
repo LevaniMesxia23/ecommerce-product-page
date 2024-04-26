@@ -11,7 +11,8 @@ export default function Navigation() {
   const { changeNum, setChangeNum } = useContext(MyContext);
   const { quantity, setQuantity } = useContext(MyContext);
   const [isOpen, setIsOpen] = useState(false);
-  const { showCart, setShowCart } = useContext(MyContext);
+  const { showCart, setShowCart, num, setNum } = useContext(MyContext);
+
 
   const handleShowCart = () => {
     setShowCart(!showCart);
@@ -51,7 +52,7 @@ export default function Navigation() {
         <div className="nav-right-div">
           <img src={Cart} alt="" onClick={handleShowCart} />
           {quantity ? (
-            <div className="notification-number">{changeNum}</div>
+            <div className="notification-number">{num}</div>
           ) : null}
           <img className="avatar" src={Avatar} alt="" />
         </div>
