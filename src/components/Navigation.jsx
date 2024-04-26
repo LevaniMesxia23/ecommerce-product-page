@@ -3,9 +3,18 @@ import styled from "styled-components";
 import Menu from "../../public/images/icon-menu.svg";
 import Cart from "../../public/images/icon-cart.svg";
 import Avatar from "../../public/images/image-avatar.png";
+import { useContext } from "react";
+import { MyContext } from "../App";
 
 export default function Navigation() {
+  const { changeNum, setChangeNum } = useContext(MyContext);
+  const {quantity, setQuantity} = useContext(MyContext)
   const [isOpen, setIsOpen] = useState(false);
+  // const [showCart,setShowCart] = useContext(MyContext)
+
+  // const handleShowCart = () => {
+  //   setShowCart(!showCart)
+  // }
 
   const toggleMenu = () => {
     setIsOpen((open) => !open);
@@ -39,7 +48,7 @@ export default function Navigation() {
         </ul>
         <div className="nav-right-div">
           <img src={Cart} alt="" />
-          <div>{}</div>
+          {quantity ? <div className="notification-number">{changeNum}</div> : null}
           <img className="avatar" src={Avatar} alt="" />
         </div>
       </Container>
@@ -53,6 +62,7 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   div {
     display: flex;
     justify-content: center;
@@ -63,6 +73,10 @@ const Container = styled.div`
       width: 24px;
       height: 24px;
       flex-shrink: 0;
+    }
+    .avatar:hover{
+      border: 2px solid #cb7d17;
+      border-radius: 50%;
     }
   }
   nav {
@@ -106,5 +120,25 @@ const Container = styled.div`
   }
   ul.open {
     display: flex;
+  }
+  .nav-right-div {
+    position: relative;
+
+    .notification-number {
+      position: absolute;
+      top: -0.2rem;
+      right: 2.1rem;
+      width: 1.1875rem;
+      height: 0.8125rem;
+      flex-shrink: 0;
+      border-radius: 0.40625rem;
+      background: #ff7e1b;
+      color: #fff;
+
+      font-size: 0.625rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
   }
 `;

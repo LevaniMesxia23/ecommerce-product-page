@@ -6,7 +6,8 @@ import { useContext } from "react";
 import { MyContext } from "../App";
 
 export default function AddToCart() {
-  const {changeNum,setChangeNum} = useContext(MyContext);
+  const { changeNum, setChangeNum } = useContext(MyContext);
+  const { quantity, setQuantity } = useContext(MyContext);
 
   const handlePlus = () => {
     setChangeNum((changeNum) => changeNum + 1);
@@ -14,6 +15,11 @@ export default function AddToCart() {
 
   const handleMinus = () => {
     if (changeNum > 0) setChangeNum((changeNum) => changeNum - 1);
+  };
+
+  const quantityChange = () => {
+    console.log("rame");
+    setQuantity(!quantity);
   };
   return (
     <>
@@ -24,7 +30,7 @@ export default function AddToCart() {
           <img className="minus" src={minus} alt="" onClick={handleMinus} />
         </div>
 
-        <div className="add">
+        <div className="add" onClick={quantityChange}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="18"
@@ -95,6 +101,7 @@ const Container = styled.div`
       font-style: normal;
       font-weight: 700;
       line-height: normal;
+      cursor: pointer;
     }
   }
 `;

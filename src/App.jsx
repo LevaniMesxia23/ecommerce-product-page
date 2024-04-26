@@ -4,29 +4,40 @@ import MainImages from "./components/MainImages";
 import Information from "./components/Information";
 import Purchase from "./components/Purchase";
 import AddToCart from "./components/AddToCart";
-import Cart from "./components/Cart"
+import Cart from "./components/Cart";
 import styled from "styled-components";
 import { useState } from "react";
 import React, { createContext } from "react";
 
-export const MyContext = React.createContext(null)
-  
+export const MyContext = React.createContext(null);
+
 function App() {
   const [changeNum, setChangeNum] = useState(0);
+  const [showCart, setShowCart] = useState(false);
+  const [quantity, setQuantity] = useState(false);
+
   return (
     <>
-    <MyContext.Provider value={{changeNum, setChangeNum}}>
-      <Container>
-        <GlobalStyles />
-        <Navigation />
-        <Cart />
-        <MainImages />
-        <Information />
-        <Purchase />
-        <AddToCart />
-      </Container>
-    </MyContext.Provider>
-      
+      <MyContext.Provider
+        value={{
+          changeNum,
+          setChangeNum,
+          quantity,
+          setQuantity,
+          showCart,
+          setShowCart,
+        }}
+      >
+        <Container>
+          <GlobalStyles />
+          <Navigation />
+          {showCart ? <Cart /> : null}
+          <MainImages />
+          <Information />
+          <Purchase />
+          <AddToCart />
+        </Container>
+      </MyContext.Provider>
     </>
   );
 }
