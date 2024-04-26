@@ -6,14 +6,12 @@ import Product from "../../public/images/image-product-1.jpg";
 import Delete from "../../public/images/icon-delete.svg";
 
 export default function Cart() {
-  const { changeNum, setChangeNum } = useContext(MyContext);
-  const { showCheckout, setShowCheckout } = useContext(MyContext);
+  const { changeNum, setChangeNum,showCheckout, setShowCheckout,num,setNum} = useContext(MyContext);
 
-  // const handleCheckout = () => {
-  //   if (changeNum) {
-  //     setShowCheckout(!showCheckout);
-  //   }
-  // };
+    if (changeNum > 0) {
+      setShowCheckout(false);
+    }
+
   return (
     <Container>
       <div className="cart-div">Cart</div>
@@ -30,12 +28,12 @@ export default function Cart() {
                   Fall Limited Edition Sneakers
                 </span>
                 <span className="product-quantity">
-                  $125.00 x 3 <span>$375.00</span>
+                  $125.00 x {num} <span>`${num * 125}`</span>
                 </span>
               </div>
               <img src={Delete} alt="" />
             </div>
-            <div></div>
+            <div className="checkout">Checkout</div>
           </div>
         )}
       </div>
@@ -73,8 +71,8 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
 
-    ${(props) =>
-      props.showCheckout ? "padding-top: 4.81rem" : "padding-top: 1.5rem"};
+    /* ${(props) =>
+      props.showCheckout ? "padding-top: 4.81rem" : "padding-top: 1.5rem"}; */
 
     color: #69707d;
     text-align: center;
@@ -84,11 +82,13 @@ const Container = styled.div`
   }
 
   .addedToCart {
+    padding: 1.5rem 1.5rem 2rem;
+
     .added-Top {
       display: flex;
       justify-content: center;
       align-items: end;
-      padding: 0 1.5rem;
+      padding-bottom: 1.63rem;
 
       .product1 {
         width: 3.125rem;
@@ -113,8 +113,8 @@ const Container = styled.div`
           line-height: 162.5%;
           text-align: start;
 
-          span{
-            color: #1D2026;
+          span {
+            color: #1d2026;
             font-size: 1rem;
             font-style: normal;
             font-weight: 700;
@@ -122,6 +122,21 @@ const Container = styled.div`
           }
         }
       }
+    }
+
+    .checkout {
+      border-radius: 0.625rem;
+      background: #ff7e1b;
+      width: 100%;
+      height: 3.5rem;
+      color: #fff;
+      font-size: 1rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 `;

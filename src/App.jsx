@@ -15,7 +15,7 @@ function App() {
   const [changeNum, setChangeNum] = useState(0);
   const [showCart, setShowCart] = useState(false);
   const [quantity, setQuantity] = useState(false);
-  const [showCheckout, setShowCheckout] = useState(false);
+  const [showCheckout, setShowCheckout] = useState(true);
   const [num, setNum] = useState(0);
 
   return (
