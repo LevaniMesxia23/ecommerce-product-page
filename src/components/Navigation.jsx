@@ -21,6 +21,10 @@ export default function Navigation() {
   const toggleMenu = () => {
     setIsOpen((open) => !open);
   };
+
+  function handleReload(){
+    window.location.reload()
+  }
   return (
     <>
       <Container>
@@ -33,6 +37,7 @@ export default function Navigation() {
             height="20"
             viewBox="0 0 138 20"
             fill="none"
+            onClick={handleReload}
           >
             <path
               fill-rule="evenodd"
