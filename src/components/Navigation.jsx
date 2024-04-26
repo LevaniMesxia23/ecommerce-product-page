@@ -30,17 +30,16 @@ export default function Navigation() {
             />
           </svg>
         </div>
-        <nav>
-          <ul className={isOpen ? "open" : ""}>
-            <li>Collections</li>
-            <li>Men</li>
-            <li>Women</li>
-            <li>About</li>
-            <li>Contact</li>
-          </ul>
-        </nav>
-        <div>
+        <ul className={isOpen ? "open" : ""}>
+          <li>Collections</li>
+          <li>Men</li>
+          <li>Women</li>
+          <li>About</li>
+          <li>Contact</li>
+        </ul>
+        <div className="nav-right-div">
           <img src={Cart} alt="" />
+          <div>{}</div>
           <img className="avatar" src={Avatar} alt="" />
         </div>
       </Container>
@@ -66,17 +65,20 @@ const Container = styled.div`
       flex-shrink: 0;
     }
   }
-  ul {
-    padding-left: 1.56rem;
+  nav {
+    /* position: relative; */
   }
-  nav ul {
+  ul {
     list-style-type: none;
     display: flex;
     gap: 1rem;
     display: none;
     padding-top: 1rem;
+    padding-left: 1.56rem;
+    background-color: white;
+    height: 100%;
   }
-  nav ul li {
+  ul li {
     cursor: pointer;
     color: #1d2026;
     font-size: 1.125rem;
@@ -84,16 +86,16 @@ const Container = styled.div`
     font-weight: 700;
     line-height: 144.444%;
   }
-  nav ul li:active {
-    color: brown;
+  ul li:hover {
+    color: #cb7d17;
   }
 
   .open {
-    top: 10%;
+    top: 78.39px;
     left: 0;
     bottom: 0;
     width: 70%;
-    background-color: white;
+    height: 100%;
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -102,7 +104,7 @@ const Container = styled.div`
   .burger {
     display: block;
   }
-  nav ul.open {
+  ul.open {
     display: flex;
   }
 `;

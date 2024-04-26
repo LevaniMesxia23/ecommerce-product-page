@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import plus from "../../public/images/icon-plus.svg";
 import minus from "../../public/images/icon-minus.svg";
+import { useContext } from "react";
+import { MyContext } from "../App";
 
 export default function AddToCart() {
-  const [changeNum, setChangeNum] = useState(0);
+  const {changeNum,setChangeNum} = useContext(MyContext);
 
   const handlePlus = () => {
     setChangeNum((changeNum) => changeNum + 1);
