@@ -18,7 +18,6 @@ export default function AddToCart() {
   };
 
   const quantityChange = () => {
-    console.log("rame");
     setQuantity(!quantity);
   };
   return (

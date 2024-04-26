@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Menu from "../../public/images/icon-menu.svg";
+import Close from "../../public/images/icon-close.svg";
 import Cart from "../../public/images/icon-cart.svg";
 import Avatar from "../../public/images/image-avatar.png";
 import { useContext } from "react";
@@ -23,7 +24,8 @@ export default function Navigation() {
     <>
       <Container>
         <div>
-          <img src={Menu} alt="" className="burger" onClick={toggleMenu} />
+          {!isOpen ? <img src={Menu} alt="" className="burger" onClick={toggleMenu}/> :
+          <img src={Close} alt="" className="close" onClick={toggleMenu}/> }
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="138"
@@ -115,7 +117,7 @@ const Container = styled.div`
     position: absolute;
     display: flex;
     flex-direction: column;
-    z-index: 9;
+    z-index: 11;
   }
   .burger {
     display: block;
