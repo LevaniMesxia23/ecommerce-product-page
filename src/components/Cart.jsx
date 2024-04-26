@@ -8,21 +8,38 @@ export default function Cart() {
   return (
     <Container>
       <div className="cart-div">Cart</div>
-      <div className="empty">Your cart is empty.</div>
+      <div className="line"></div>
+      <div className="empty-div">
+        <div className="empty">Your cart is empty.</div>
+      </div>
     </Container>
   );
 }
 
 const Container = styled.div`
   position: absolute;
-  width: 22.5rem;
+  width: 20.5rem;
   height: 16rem;
   flex-shrink: 0;
   border-radius: 0.625rem;
   background: #fff;
   box-shadow: 0px 20px 50px -20px rgba(29, 32, 38, 0.5);
-  
-  .cart-div{
-    
+  z-index: 10;
+  margin-top: 0.5rem;
+
+  .cart-div {
+    padding: 1.5rem;
+  }
+  .line {
+    width: 100%;
+    height: 0.0625rem;
+    flex-shrink: 0;
+    background: #e4e9f2;
+  }
+  .empty-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 4.81rem;
   }
 `;

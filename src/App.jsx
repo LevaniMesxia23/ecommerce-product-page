@@ -13,7 +13,7 @@ export const MyContext = React.createContext(null);
 
 function App() {
   const [changeNum, setChangeNum] = useState(0);
-  const [showCart, setShowCart] = useState(false);
+  const [showCart, setShowCart] = useState(true);
   const [quantity, setQuantity] = useState(false);
 
   return (
@@ -31,7 +31,7 @@ function App() {
         <Container>
           <GlobalStyles />
           <Navigation />
-          {showCart ? <Cart /> : null}
+          <div className="cart-box">{showCart ? <Cart /> : null}</div>
           <MainImages />
           <Information />
           <Purchase />
@@ -48,4 +48,10 @@ const Container = styled.div`
   height: 100%;
   width: 100%;
   position: relative;
+
+  .cart-box {
+    display: flex;
+    justify-content: center;
+    padding-top: 0.5rem;
+  }
 `;
