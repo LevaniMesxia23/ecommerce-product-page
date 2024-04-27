@@ -1,6 +1,7 @@
 import Navigation from "../src/components/Navigation";
 import GlobalStyles from "./styles/GlobalStyles";
 import MainImages from "./components/MainImages";
+import SmallImages from "./components/SmallImages";
 import Information from "./components/Information";
 import Purchase from "./components/Purchase";
 import AddToCart from "./components/AddToCart";
@@ -42,6 +43,7 @@ function App() {
           <div className="box">
             <div className="left-box">
               <MainImages />
+              <SmallImages />
             </div>
             <div className="right-box">
               <Information />
@@ -82,6 +84,12 @@ const Container = styled.div`
       display: flex;
       gap: 10%;
       margin-top: 5.93rem;
+
+      .left-box {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
     }
   }
 `;
