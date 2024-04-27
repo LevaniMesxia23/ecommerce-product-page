@@ -7,7 +7,7 @@ import Purchase from "./components/Purchase";
 import AddToCart from "./components/AddToCart";
 import Cart from "./components/Cart";
 import styled from "styled-components";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import React, { createContext } from "react";
 
 export const MyContext = React.createContext(null);
@@ -18,6 +18,19 @@ function App() {
   const [quantity, setQuantity] = useState(false);
   const [showCheckout, setShowCheckout] = useState(true);
   const [num, setNum] = useState(0);
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 999);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 1000);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <>
@@ -43,7 +56,8 @@ function App() {
           <div className="box">
             <div className="left-box">
               <MainImages />
-              <SmallImages />
+
+              {isSmallScreen ? null : <SmallImages />}
             </div>
             <div className="right-box">
               <Information />
