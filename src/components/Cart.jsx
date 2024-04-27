@@ -68,6 +68,7 @@ const Container = styled.div`
   margin-top: 0.5rem;
   right: 1.5rem;
 
+
   .cart-div {
     padding: 1.5rem;
     color: #1d2026;
@@ -160,5 +161,9 @@ const Container = styled.div`
       align-items: center;
       cursor: pointer;
     }
+  }
+
+  @media (min-width: 1000px) {
+    margin-right: 10rem;
   }
 `;

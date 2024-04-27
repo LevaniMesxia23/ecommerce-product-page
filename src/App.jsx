@@ -97,7 +97,7 @@ const Container = styled.div`
     .box {
       display: flex;
       gap: 10%;
-      margin-top: 5.93rem;
+      margin-top: 3.93rem;
 
       .left-box {
         display: flex;

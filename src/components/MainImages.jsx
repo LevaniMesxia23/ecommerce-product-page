@@ -3,17 +3,14 @@ import Product2 from "../../public/images/image-product-2.jpg";
 import Product3 from "../../public/images/image-product-3.jpg";
 import Product4 from "../../public/images/image-product-4.jpg";
 import React, { useRef, useState } from "react";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 import "../styles/styles.css";
 
-// import required modules
 import { Pagination, Navigation } from "swiper/modules";
 
 export default function App() {

@@ -12,6 +12,7 @@ export default function Navigation() {
   const { quantity, setQuantity } = useContext(MyContext);
   const [isOpen, setIsOpen] = useState(false);
   const { showCart, setShowCart, num, setNum } = useContext(MyContext);
+  const [showPopup, setShowPopup] = useState(false);
 
   const handleShowCart = () => {
     setShowCart(!showCart);
@@ -19,6 +20,7 @@ export default function Navigation() {
 
   const toggleMenu = () => {
     setIsOpen((open) => !open);
+    setShowPopup(!showPopup);
   };
 
   function handleReload() {
@@ -31,7 +33,10 @@ export default function Navigation() {
           {!isOpen ? (
             <img src={Menu} alt="" className="burger" onClick={toggleMenu} />
           ) : (
-            <img src={Close} alt="" className="close" onClick={toggleMenu} />
+            <div>
+              <img src={Close} alt="x" className="close" onClick={toggleMenu} />
+              <div className="popup" onClick={toggleMenu}></div>
+            </div>
           )}
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -49,6 +54,7 @@ export default function Navigation() {
             />
           </svg>
         </div>
+
         <ul className={isOpen ? "open" : ""}>
           <li>Collections</li>
           <li>Men</li>
@@ -68,17 +74,30 @@ export default function Navigation() {
 
 const Container = styled.div`
   width: 100%;
-  /* padding: 1.7rem 1.5rem; */
+  padding: 1.7rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  .popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+  }
 
   div {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    padding: 1.7rem 1.5rem;
+    padding: 0 1.7rem 1.5rem;
 
     .avatar {
       width: 24px;
@@ -113,19 +132,27 @@ const Container = styled.div`
   }
 
   .open {
-    top: 78.39px;
+    top: 0;
     left: 0;
     bottom: 0;
-    width: 70%;
+    min-width: 40%;
     height: 100%;
     position: absolute;
     display: flex;
     flex-direction: column;
     z-index: 11;
+    padding-top: 90px;
+    padding-left: 3rem;
+    padding-right: 1rem;
   }
   .burger {
     display: block;
     cursor: pointer;
+  }
+  .close {
+    z-index: 500;
+    cursor: pointer;
+    margin-left: -2.4rem;
   }
   ul.open {
     display: flex;
@@ -140,18 +167,18 @@ const Container = styled.div`
     .notification-number {
       position: absolute;
       top: -0.2rem;
-      right: 2.1rem;
+      right: 3.8rem;
       width: 1.1875rem;
       height: 0.8125rem;
       flex-shrink: 0;
       border-radius: 0.40625rem;
       background: #ff7e1b;
       color: #fff;
-
       font-size: 0.625rem;
       font-style: normal;
       font-weight: 700;
       line-height: normal;
+      padding: 0;
     }
   }
 
@@ -160,9 +187,11 @@ const Container = styled.div`
       margin-left: -30%;
     }
   }
-
   @media (min-width: 1000px) {
-    border-bottom: 2px solid #e4e9f2;
+    .nav-right-div .notification-number {
+      top: 0.6rem;
+      right: 5.4rem;
+    }
 
     div {
       .avatar {
@@ -186,7 +215,6 @@ const Container = styled.div`
       background-color: transparent;
       align-items: center;
       justify-content: center;
-
     }
     ul.open {
       display: none;
@@ -198,8 +226,8 @@ const Container = styled.div`
       font-style: normal;
       font-weight: 400;
       line-height: 173.333%;
-      height: 3.2rem;
-      margin-bottom: -1.9rem;
+      height: 3.7rem;
+      margin-bottom: -1rem;
       position: relative;
     }
     ul li:hover {
