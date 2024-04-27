@@ -61,6 +61,7 @@ const Container = styled.div`
   box-shadow: 0px 20px 50px -20px rgba(29, 32, 38, 0.5);
   z-index: 10;
   margin-top: 0.5rem;
+  right: 1.5rem;
 
   .cart-div {
     padding: 1.5rem;
@@ -83,12 +84,15 @@ const Container = styled.div`
 
     /* ${(props) =>
       props.showCheckout ? "padding-top: 4.81rem" : "padding-top: 1.5rem"}; */
-
     color: #69707d;
     text-align: center;
     font-size: 1rem;
     font-style: normal;
     line-height: 162.5%;
+
+    .empty{
+      margin-top: 4.31rem;
+    }
   }
 
   .addedToCart {

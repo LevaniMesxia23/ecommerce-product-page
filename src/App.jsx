@@ -56,8 +56,6 @@ const Container = styled.div`
   position: relative;
 
   .cart-box {
-    display: flex;
-    justify-content: center;
-    padding-top: 0.5rem;
+    
   }
 `;
