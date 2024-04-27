@@ -27,7 +27,7 @@ export default function Navigation() {
   return (
     <>
       <Container>
-        <div>
+        <div className="nav-left-div">
           {!isOpen ? (
             <img src={Menu} alt="" className="burger" onClick={toggleMenu} />
           ) : (
@@ -57,7 +57,7 @@ export default function Navigation() {
           <li>Contact</li>
         </ul>
         <div className="nav-right-div">
-          <img src={Cart} alt="" onClick={handleShowCart} />
+          <img src={Cart} alt="" onClick={handleShowCart} className="cart" />
           {quantity ? <div className="notification-number">{num}</div> : null}
           <img className="avatar" src={Avatar} alt="" />
         </div>
@@ -68,7 +68,7 @@ export default function Navigation() {
 
 const Container = styled.div`
   width: 100%;
-  padding: 1.7rem 1.5rem;
+  /* padding: 1.7rem 1.5rem; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -78,6 +78,7 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
     gap: 1rem;
+    padding: 1.7rem 1.5rem;
 
     .avatar {
       width: 24px;
@@ -87,10 +88,8 @@ const Container = styled.div`
     .avatar:hover {
       border: 2px solid #cb7d17;
       border-radius: 50%;
+      cursor: pointer;
     }
-  }
-  nav {
-    /* position: relative; */
   }
   ul {
     list-style-type: none;
@@ -100,7 +99,6 @@ const Container = styled.div`
     padding-top: 1rem;
     padding-left: 1.56rem;
     background-color: white;
-    height: 100%;
   }
   ul li {
     cursor: pointer;
@@ -127,12 +125,17 @@ const Container = styled.div`
   }
   .burger {
     display: block;
+    cursor: pointer;
   }
   ul.open {
     display: flex;
   }
   .nav-right-div {
     position: relative;
+
+    .cart {
+      cursor: pointer;
+    }
 
     .notification-number {
       position: absolute;
@@ -152,7 +155,76 @@ const Container = styled.div`
     }
   }
 
-  @media (min-width: 520px) {
+  @media (min-width: 1300px) {
+    ul {
+      margin-left: -30%;
+    }
+  }
+
+  @media (min-width: 1000px) {
     border-bottom: 2px solid #e4e9f2;
+
+    div {
+      .avatar {
+        width: 3.125rem;
+        height: 3.125rem;
+        flex-shrink: 0;
+      }
+
+      .cart {
+        width: 1.36381rem;
+        height: 1.25rem;
+        flex-shrink: 0;
+      }
+    }
+
+    ul {
+      display: flex;
+      gap: 2rem;
+      padding-top: 0;
+      padding-left: 0;
+      background-color: transparent;
+      align-items: center;
+      justify-content: center;
+
+    }
+    ul.open {
+      display: none;
+    }
+    ul li {
+      cursor: pointer;
+      color: #69707d;
+      font-size: 0.9375rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 173.333%;
+      height: 3.2rem;
+      margin-bottom: -1.9rem;
+      position: relative;
+    }
+    ul li:hover {
+      color: #1d2026;
+    }
+    ul li:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 0;
+      background-color: #cb7d17;
+      transition: height 0.3s ease;
+    }
+    ul li:hover::after {
+      height: 4px;
+    }
+
+    .burger {
+      display: none;
+      cursor: pointer;
+    }
+    ul.open {
+      display: none;
+    }
   }
 `;

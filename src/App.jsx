@@ -93,7 +93,7 @@ const Container = styled.div`
     flex-direction: column;
   }
   @media (min-width: 1000px) {
-    /* padding: 1.75rem 10.31rem 8.25rem; */
+    padding: 1.75rem 10.31rem 8.25rem;
     .box {
       display: flex;
       gap: 10%;

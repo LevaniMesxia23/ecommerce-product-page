@@ -75,12 +75,14 @@ const Container = styled.div`
     .plus {
       position: absolute;
       right: 1.5rem;
-      top: 1.3rem;
+      top: 1.38rem;
+      cursor: pointer;
     }
     .minus {
       position: absolute;
       left: 1.5rem;
-      top: 50%;
+      top: 1.65rem;
+      cursor: pointer;
     }
   }
 
@@ -97,6 +99,7 @@ const Container = styled.div`
     align-items: center;
     margin-top: 1rem;
     gap: 0.97rem;
+    cursor: pointer;
 
     .add-to-cart {
       color: #fff;
@@ -104,9 +107,14 @@ const Container = styled.div`
       font-style: normal;
       font-weight: 700;
       line-height: normal;
-      cursor: pointer;
+      
     }
   }
+  .add:hover {
+      border-radius: 0.625rem;
+      background: #ffab6a;
+      box-shadow: 0px 20px 50px -20px #ff7e1b;
+    }
 
   @media (min-width: 520px) {
     display: flex;

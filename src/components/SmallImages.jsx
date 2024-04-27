@@ -29,4 +29,11 @@ const Container = styled.div`
     border-radius: 0.625rem;
     background: url(<path-to-image>) lightgray 50% / cover no-repeat;
   }
+  img:hover {
+    border-radius: 0.625rem;
+    border: 2px solid #ff7e1b;
+    background: white;
+    opacity: 0.3;
+    cursor: pointer;
+  }
 `;
