@@ -29,7 +29,6 @@ body {
   font-size: 18px;
   background: #fff;
 
-  /* Center slide text vertically */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -61,15 +60,3 @@ body {
   background-color: white;
   border-radius: 50%;
 }
-
-/* .rigth {
-  position: absolute;
-  right: 1rem;
-  top: 42%;
-  z-index: 30;
-}
-.left {
-  position: absolute;
-  left: 1rem;
-  top: 42%;
-} */
