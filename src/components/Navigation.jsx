@@ -13,7 +13,6 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const { showCart, setShowCart, num, setNum } = useContext(MyContext);
 
-
   const handleShowCart = () => {
     setShowCart(!showCart);
   };
@@ -22,15 +21,18 @@ export default function Navigation() {
     setIsOpen((open) => !open);
   };
 
-  function handleReload(){
-    window.location.reload()
+  function handleReload() {
+    window.location.reload();
   }
   return (
     <>
       <Container>
         <div>
-          {!isOpen ? <img src={Menu} alt="" className="burger" onClick={toggleMenu}/> :
-          <img src={Close} alt="" className="close" onClick={toggleMenu}/> }
+          {!isOpen ? (
+            <img src={Menu} alt="" className="burger" onClick={toggleMenu} />
+          ) : (
+            <img src={Close} alt="" className="close" onClick={toggleMenu} />
+          )}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="138"
@@ -56,9 +58,7 @@ export default function Navigation() {
         </ul>
         <div className="nav-right-div">
           <img src={Cart} alt="" onClick={handleShowCart} />
-          {quantity ? (
-            <div className="notification-number">{num}</div>
-          ) : null}
+          {quantity ? <div className="notification-number">{num}</div> : null}
           <img className="avatar" src={Avatar} alt="" />
         </div>
       </Container>
@@ -150,5 +150,9 @@ const Container = styled.div`
       font-weight: 700;
       line-height: normal;
     }
+  }
+
+  @media (min-width: 520px) {
+    border-bottom: 2px solid #e4e9f2;
   }
 `;

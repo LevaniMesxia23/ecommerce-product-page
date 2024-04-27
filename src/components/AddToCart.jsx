@@ -9,7 +9,7 @@ export default function AddToCart() {
   const { changeNum, setChangeNum } = useContext(MyContext);
   const { quantity, setQuantity } = useContext(MyContext);
   const { num, setNum } = useContext(MyContext);
-  console.log(num)
+  console.log(num);
 
   const handlePlus = () => {
     setChangeNum((changeNum) => changeNum + 1);
@@ -85,7 +85,8 @@ const Container = styled.div`
   }
 
   .add {
-    width: 100%;
+    min-width: 50%;
+    max-width: 100%;
     height: 3.5rem;
     flex-shrink: 0;
     border-radius: 0.625rem;
@@ -104,6 +105,21 @@ const Container = styled.div`
       font-weight: 700;
       line-height: normal;
       cursor: pointer;
+    }
+  }
+
+  @media (min-width: 520px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .quantity {
+      min-width: 9.8125rem;
+    }
+    .add {
+      max-width: 17rem;
+      margin-top: 0;
     }
   }
 `;

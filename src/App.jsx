@@ -38,10 +38,17 @@ function App() {
           <GlobalStyles />
           <Navigation />
           <div className="cart-box">{showCart ? <Cart /> : null}</div>
-          <MainImages />
-          <Information />
-          <Purchase />
-          <AddToCart />
+
+          <div className="box">
+            <div className="left-box">
+              <MainImages />
+            </div>
+            <div className="right-box">
+              <Information />
+              <Purchase />
+              <AddToCart />
+            </div>
+          </div>
         </Container>
       </MyContext.Provider>
     </>
@@ -55,7 +62,26 @@ const Container = styled.div`
   width: 100%;
   position: relative;
 
-  .cart-box {
-    
+  .right-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 520px;
+  }
+
+  @media (min-width: 520px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  @media (min-width: 1000px) {
+    /* padding: 1.75rem 10.31rem 8.25rem; */
+    .box {
+      display: flex;
+      gap: 10%;
+      margin-top: 5.93rem;
+    }
   }
 `;
