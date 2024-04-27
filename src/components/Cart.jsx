@@ -13,6 +13,8 @@ export default function Cart() {
     setShowCheckout,
     num,
     setNum,
+    quantity,
+    setQuantity
   } = useContext(MyContext);
 
   useEffect(() => {
@@ -23,7 +25,7 @@ export default function Cart() {
 
   const handleDelete = () => {
     setShowCheckout(true)
-    setNum(0)
+    setQuantity(false)
   };
   return (
     <Container>
