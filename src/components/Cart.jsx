@@ -21,7 +21,10 @@ export default function Cart() {
     }
   }, [num]);
 
-  const handleDelete = () => {};
+  const handleDelete = () => {
+    setShowCheckout(true)
+    setNum(0)
+  };
   return (
     <Container>
       <div className="cart-div">Cart</div>
@@ -41,7 +44,7 @@ export default function Cart() {
                   $125.00 x {num} <span>`${num * 125}`</span>
                 </span>
               </div>
-              <img src={Delete} alt="" onClick={handleDelete} />
+              <img src={Delete} alt="" onClick={handleDelete} className="delete-button"/>
             </div>
             <div className="checkout">Checkout</div>
           </div>
@@ -82,8 +85,7 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
 
-    /* ${(props) =>
-      props.showCheckout ? "padding-top: 4.81rem" : "padding-top: 1.5rem"}; */
+
     color: #69707d;
     text-align: center;
     font-size: 1rem;
@@ -135,6 +137,9 @@ const Container = styled.div`
             line-height: 162.5%;
           }
         }
+      }
+      .delete-button{
+        cursor: pointer;
       }
     }
 
