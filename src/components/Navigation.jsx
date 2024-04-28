@@ -89,7 +89,7 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 10;
+    z-index: 11;
   }
 
   div {
@@ -140,7 +140,7 @@ const Container = styled.div`
     position: absolute;
     display: flex;
     flex-direction: column;
-    z-index: 11;
+    z-index: 12;
     padding-top: 90px;
     padding-left: 3rem;
     padding-right: 1rem;

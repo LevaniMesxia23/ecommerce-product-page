@@ -13,6 +13,8 @@ import "../styles/styles.css";
 
 import { Pagination, Navigation } from "swiper/modules";
 
+// const [click, setClick] = useState(false)
+
 export default function App() {
   return (
     <>

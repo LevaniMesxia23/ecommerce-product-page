@@ -63,5 +63,6 @@ body {
   .swiper {
     border-radius: 0.9375rem;
     background: url(<path-to-image>) lightgray 50% / cover no-repeat;
+    cursor: pointer;
   }
 }

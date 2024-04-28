@@ -20,8 +20,14 @@ export default function AddToCart() {
   };
 
   const quantityChange = () => {
-    setQuantity(true);
+    if(changeNum == 0){
+      setQuantity(false);
+    }else{
+
+      setQuantity(true);
+    }
     setNum(changeNum);
+    setChangeNum(0);
   };
   return (
     <>
@@ -107,14 +113,13 @@ const Container = styled.div`
       font-style: normal;
       font-weight: 700;
       line-height: normal;
-      
     }
   }
   .add:hover {
-      border-radius: 0.625rem;
-      background: #ffab6a;
-      box-shadow: 0px 20px 50px -20px #ff7e1b;
-    }
+    border-radius: 0.625rem;
+    background: #ffab6a;
+    box-shadow: 0px 20px 50px -20px #ff7e1b;
+  }
 
   @media (min-width: 520px) {
     display: flex;

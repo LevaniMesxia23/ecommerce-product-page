@@ -14,18 +14,18 @@ export default function Cart() {
     num,
     setNum,
     quantity,
-    setQuantity
+    setQuantity,
   } = useContext(MyContext);
 
   useEffect(() => {
-    if (changeNum > 0) {
+    if (num > 0) {
       setShowCheckout(false);
     }
   }, [num]);
 
   const handleDelete = () => {
-    setShowCheckout(true)
-    setQuantity(false)
+    setShowCheckout(true);
+    setQuantity(false);
   };
   return (
     <Container>
@@ -46,7 +46,12 @@ export default function Cart() {
                   $125.00 x {num} <span>`${num * 125}`</span>
                 </span>
               </div>
-              <img src={Delete} alt="" onClick={handleDelete} className="delete-button"/>
+              <img
+                src={Delete}
+                alt=""
+                onClick={handleDelete}
+                className="delete-button"
+              />
             </div>
             <div className="checkout">Checkout</div>
           </div>
@@ -65,9 +70,8 @@ const Container = styled.div`
   background: #fff;
   box-shadow: 0px 20px 50px -20px rgba(29, 32, 38, 0.5);
   z-index: 10;
-  margin-top: 0.5rem;
+  margin-top: -2rem;
   right: 1.5rem;
-
 
   .cart-div {
     padding: 1.5rem;
@@ -88,14 +92,13 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
 
-
     color: #69707d;
     text-align: center;
     font-size: 1rem;
     font-style: normal;
     line-height: 162.5%;
 
-    .empty{
+    .empty {
       margin-top: 4.31rem;
     }
   }
@@ -141,7 +144,7 @@ const Container = styled.div`
           }
         }
       }
-      .delete-button{
+      .delete-button {
         cursor: pointer;
       }
     }
@@ -165,5 +168,6 @@ const Container = styled.div`
 
   @media (min-width: 1000px) {
     margin-right: 10rem;
+    margin-top: -2rem;
   }
 `;
