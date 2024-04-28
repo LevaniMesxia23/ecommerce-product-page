@@ -23,9 +23,11 @@ export default function Cart() {
     }
   }, [num]);
 
+  console.log(num);
   const handleDelete = () => {
     setShowCheckout(true);
     setQuantity(false);
+    setNum(0);
   };
   return (
     <Container>
