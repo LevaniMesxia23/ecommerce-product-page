@@ -20,10 +20,9 @@ export default function AddToCart() {
   };
 
   const quantityChange = () => {
-    if(changeNum == 0){
+    if (changeNum == 0) {
       setQuantity(false);
-    }else{
-
+    } else {
       setQuantity(true);
     }
     setNum(changeNum);
@@ -93,7 +92,7 @@ const Container = styled.div`
   }
 
   .add {
-    min-width: 50%;
+    min-width: 60%;
     max-width: 100%;
     height: 3.5rem;
     flex-shrink: 0;
@@ -126,6 +125,7 @@ const Container = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
 
     .quantity {
       min-width: 9.8125rem;

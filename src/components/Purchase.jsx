@@ -72,4 +72,11 @@ const Container = styled.div`
       }
     }
   }
+  @media (min-width: 1000px) {
+    .amountBox{
+      flex-direction: column;
+      align-items: start;
+      gap: 0.62rem;
+    }
+  }
 `;

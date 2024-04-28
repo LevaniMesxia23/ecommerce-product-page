@@ -188,6 +188,9 @@ const Container = styled.div`
     }
   }
   @media (min-width: 1000px) {
+    border-bottom: 2px solid #e4e9f2;
+    padding: 0;
+    
     .nav-right-div .notification-number {
       top: 0.6rem;
       right: 5.4rem;

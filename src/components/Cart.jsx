@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useContext } from "react";
 import { MyContext } from "../App";
@@ -15,7 +15,19 @@ export default function Cart() {
     setNum,
     quantity,
     setQuantity,
+    openCompleted,
+    setOpenCompleted,
   } = useContext(MyContext);
+
+  const [loading, setLoading] = useState(false);
+
+  const handleCheckout = () => {
+    setLoading(!loading);
+    setTimeout(() => {
+      setLoading(false);
+      setOpenCompleted(!openCompleted);
+    }, 2000);
+  };
 
   useEffect(() => {
     if (num > 0) {
@@ -55,7 +67,9 @@ export default function Cart() {
                 className="delete-button"
               />
             </div>
-            <div className="checkout">Checkout</div>
+            <div className="checkout" onClick={handleCheckout}>
+              {loading ? "Processing..." : "Checkout"}
+            </div>
           </div>
         )}
       </div>
@@ -72,7 +86,6 @@ const Container = styled.div`
   background: #fff;
   box-shadow: 0px 20px 50px -20px rgba(29, 32, 38, 0.5);
   z-index: 10;
-  margin-top: -2rem;
   right: 1.5rem;
 
   .cart-div {
@@ -170,6 +183,8 @@ const Container = styled.div`
 
   @media (min-width: 1000px) {
     margin-right: 10rem;
+  }
+  @media (max-width: 1000px) {
     margin-top: -2rem;
   }
 `;

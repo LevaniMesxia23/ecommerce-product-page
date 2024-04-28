@@ -6,6 +6,7 @@ import Information from "./components/Information";
 import Purchase from "./components/Purchase";
 import AddToCart from "./components/AddToCart";
 import Cart from "./components/Cart";
+import Completed from "./components/Completed"
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import React, { createContext } from "react";
@@ -18,6 +19,7 @@ function App() {
   const [quantity, setQuantity] = useState(false);
   const [showCheckout, setShowCheckout] = useState(true);
   const [num, setNum] = useState(0);
+  const [openCompleted, setOpenCompleted] = useState(false)
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 999);
 
   useEffect(() => {
@@ -46,12 +48,16 @@ function App() {
           setShowCheckout,
           num,
           setNum,
+          openCompleted,
+          setOpenCompleted
         }}
       >
         <Container>
           <GlobalStyles />
           <Navigation />
-          <div className="cart-box">{showCart ? <Cart /> : null}</div>
+          <div className="cart-box">{showCart ? <Cart /> : null} 
+          {openCompleted ? <Completed /> : null}
+          </div>
 
           <div className="box">
             <div className="left-box">
